@@ -19,7 +19,8 @@
   ],
   "ignorePatterns": [
     "node_modules",
-    "dist"
+    "dist",
+    "jest.*.js"
   ],
   "root": true,
   "rules": {

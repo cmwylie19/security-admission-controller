@@ -1,8 +1,4 @@
-import {
-  Capability,
-  a,
-  containers,
-} from "pepr";
+import { Capability, a, containers } from "pepr";
 import { V1SecurityContext, V1Container } from "@kubernetes/client-node";
 
 export const SecurityPolicy = new Capability({
@@ -10,7 +6,6 @@ export const SecurityPolicy = new Capability({
   description: "Security policies for pods",
   namespaces: ["secure-namespace"],
 });
-``;
 
 const { When } = SecurityPolicy;
 
@@ -135,21 +130,20 @@ When(a.Pod)
       // Ensure the resources field is defined
       c.resources = c.resources || {};
 
-      if(c.resources.limits === undefined) {
+      if (c.resources.limits === undefined) {
         c.resources.limits = {
           cpu: "200m",
-          memory: "256Mi"
+          memory: "256Mi",
         };
       }
 
-      if(c.resources.requests === undefined) {
+      if (c.resources.requests === undefined) {
         c.resources.requests = {
           cpu: "100m",
-          memory: "128Mi"
+          memory: "128Mi",
         };
       }
     });
-
   });
 
 function securityContextMessage(
